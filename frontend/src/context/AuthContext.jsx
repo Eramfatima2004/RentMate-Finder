@@ -4,15 +4,23 @@ const AuthContext = createContext();
 
 // Detect production hosting environment to dynamically assign API URLs
 const getApiUrl = () => {
-  if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
+  let url = import.meta.env.VITE_API_URL;
+  
+  if (!url) {
+    const isProd = typeof window !== 'undefined' && 
+                   window.location.hostname !== 'localhost' && 
+                   window.location.hostname !== '127.0.0.1';
+    url = isProd 
+      ? 'https://rentmate-backend-vvrp.onrender.com/api' 
+      : 'http://localhost:5000/api';
   }
-  const isProd = typeof window !== 'undefined' && 
-                 window.location.hostname !== 'localhost' && 
-                 window.location.hostname !== '127.0.0.1';
-  return isProd 
-    ? 'https://rentmate-backend-vvrp.onrender.com/api' 
-    : 'http://localhost:5000/api';
+
+  // Defensively ensure URL ends with '/api' to prevent routing mismatches
+  if (url && !url.endsWith('/api') && !url.endsWith('/api/')) {
+    url = url.endsWith('/') ? `${url}api` : `${url}/api`;
+  }
+  
+  return url;
 };
 
 export const API_URL = getApiUrl();
