@@ -144,7 +144,7 @@ Hosted on **Vercel**
 **Live URL:**
 
 ```
-rent-mate-finder.vercel.app
+https://rent-mate-finder.vercel.app/
 
 ```
 
