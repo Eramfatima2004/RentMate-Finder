@@ -8,8 +8,8 @@ An AI-powered Rent & Flatmate Finder built for the Indian rental market. This pl
 
 | Service | URL |
 |---------|-----|
-| Frontend (Vercel) | https://your-vercel-app.vercel.app |
-| Backend (Render) | https://your-render-app.onrender.com |
+| Frontend (Vercel) | https://rent-mate-finder.vercel.app |
+| Backend (Render) | https://rentmate-backend-vvrp.onrender.com |
 
 > Replace the above URLs after deploying the project.
 
