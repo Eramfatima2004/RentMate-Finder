@@ -2,7 +2,20 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const AuthContext = createContext();
 
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Detect production hosting environment to dynamically assign API URLs
+const getApiUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  const isProd = typeof window !== 'undefined' && 
+                 window.location.hostname !== 'localhost' && 
+                 window.location.hostname !== '127.0.0.1';
+  return isProd 
+    ? 'https://rentmate-backend-vvrp.onrender.com/api' 
+    : 'http://localhost:5000/api';
+};
+
+export const API_URL = getApiUrl();
 // WebSocket URL: replace http/https with ws/wss
 export const WS_URL = API_URL.replace(/^http/, 'ws').replace('/api', '');
 

@@ -144,7 +144,8 @@ Hosted on **Vercel**
 **Live URL:**
 
 ```
-https://your-vercel-app.vercel.app
+rent-mate-finder.vercel.app
+
 ```
 
 ### Backend
@@ -154,7 +155,8 @@ Hosted on **Render**
 **API URL:**
 
 ```
-https://your-render-app.onrender.com
+https://rentmate-backend-vvrp.onrender.com
+
 ```
 
 ### Database
